@@ -3,7 +3,7 @@ import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import { GraphQLClient, gql } from 'graphql-request'
 import DOMPurify from 'isomorphic-dompurify'
-import hygraph from './hygraph'
+import hygraph from '../hygraph'
 
 const AUTHORQUERY = gql`
   {
