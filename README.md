@@ -1,4 +1,4 @@
-![tailwind-nextjs-banner](/public/static/images/twitter-card-two.png)
+![site logo](/public/static/images/twitter-card-three.png)
 
 [Deployed](https://presales-jobs.netlify.app/) 
 
