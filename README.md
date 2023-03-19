@@ -59,7 +59,7 @@ module.exports = withBundleAnalyzer({
 
 ## 🤖 AI-Generated Logo
 
-Looka was used for nifty AI-generated logo design.
+[Looka](https://looka.com/) was used for nifty AI-generated logo design.
 
 ## Summary: 
 
