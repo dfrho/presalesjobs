@@ -22,7 +22,6 @@ const ScaledLightLogo = styled(Logo)`
   @media (max-width: 640px) {
     transform: scale(1.2);
     max-width: 80%;
-    overflow: hidden;
   }
 `
 
@@ -30,7 +29,6 @@ const ScaledDarkLogo = styled(LogoDark)`
   @media (max-width: 640px) {
     transform: scale(1.2);
     max-width: 80%;
-    overflow: hidden;
   }
 `
 const HeaderWrapper = styled.header`
@@ -84,7 +82,6 @@ const LayoutWrapper = ({ children }) => {
       </HeaderWrapper>
       <MainWrapper>{children}</MainWrapper>
       <Footer />
-      {/* </div> */}
     </SectionContainer>
   )
 }
