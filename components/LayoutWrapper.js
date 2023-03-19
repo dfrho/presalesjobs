@@ -14,22 +14,19 @@ import styled from 'styled-components'
 const MainWrapper = styled.main`
   @media (max-width: 640px) {
     padding-top: 60px;
+    z-index: 22;
   }
 `
 
 const ScaledLightLogo = styled(Logo)`
   @media (max-width: 640px) {
-    transform: scale(1.2);
     max-width: 80%;
-    overflow: hidden;
   }
 `
 
 const ScaledDarkLogo = styled(LogoDark)`
   @media (max-width: 640px) {
-    transform: scale(1.2);
     max-width: 80%;
-    overflow: hidden;
   }
 `
 const HeaderWrapper = styled.header`
@@ -57,10 +54,10 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <SectionContainer>
-      <HeaderWrapper className="flex justify-between py-3">
+      <HeaderWrapper className="flex flex-shrink-0 justify-between py-3">
         <div>
           <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center justify-between">
+            <div className="flex max-h-40 items-center justify-between">
               <div>{theme === 'dark' ? <ScaledDarkLogo /> : <ScaledLightLogo />}</div>
             </div>
           </Link>
@@ -83,7 +80,6 @@ const LayoutWrapper = ({ children }) => {
       </HeaderWrapper>
       <MainWrapper>{children}</MainWrapper>
       <Footer />
-      {/* </div> */}
     </SectionContainer>
   )
 }
