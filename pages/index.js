@@ -19,7 +19,6 @@ const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   outline: none;
-  z-index: 11;
 `
 
 const GreenButton = styled.a`
