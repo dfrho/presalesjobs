@@ -14,9 +14,9 @@ In addition to the job board, the app also has other content, such as informatio
 
 The application uses a GraphQL API to retrieve data from Hygraph's Headless CMS, which serves as the content management system for the log. The application is deployed and hosted on Netlify, a cloud computing platform that empowers frontend engineers to build apps without extensive DevOps or backend involvement using Composable Architecture. Netlify hosts the server-side rendered pages in the cloud, mostly on AWS, and pulls the content from Hygraph during each build.
 
-## 🌐 REST API
+## 🌐 AirTable REST API
 
-The Airtable REST API was used to retrieve the data from the Airtable. Here is the AirTable documentation for their API. Once you have a workspace, it will show at the bottom of the screen and you can jump into it and its documentation and API playground for testing the endpoint.
+The [Airtable REST API](https://airtable.com/developers/web/api/introduction) was used to retrieve the data from the Airtable. Here is the AirTable documentation for their API. Once you have a workspace, it will show at the bottom of the screen and you can jump into it and its documentation and API playground for testing the endpoint (check out the **curl** commands for a Hygraph connection).
 
 ## Tutorial
 
@@ -26,9 +26,17 @@ The Airtable REST API was used to retrieve the data from the Airtable. Here is t
 
 A future version of the app would be possible after upgrading the Hygraph account so multiple Remote Sources can be used. This would allow streaming data from a second jobs board, ["Who's Still Hiring?"](https://stillhiring.today/) into the API and displaying these jobs after de-duping somehow.
 
-## Secure HTML
+## 🔒 Secure HTML
 
-The app uses `dangerouslySetInnerHTML` to render content from Hygraph, so it needed to be sanitized using `DOMPurify`. Notably, a helper method was added so it didn't sanitize the `target="_blank"` on the `<a>` tags, allowing a new tab to open when clicking on links.
+The app uses `dangerouslySetInnerHTML` to render content from Hygraph, so it needed to be sanitized using `DOMPurify`. Notably, a helper method was added so it didn't sanitize the `target="_blank"` on the `<a>` tags, allowing a new tab to open when clicking on links:
+
+```javascript
+DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+    if (node.nodeName.toLowerCase() === 'a') {
+      node.setAttribute('target', '_blank')
+    }
+  })
+  ```
 
 ## 📊 PostHog Analytics
 
