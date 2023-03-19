@@ -14,6 +14,10 @@ In addition to the job board, the app also has other content, such as informatio
 
 The application uses a GraphQL API to retrieve data from Hygraph's Headless CMS, which serves as the content management system for the log. The application is deployed and hosted on Netlify, a cloud computing platform that empowers frontend engineers to build apps without extensive DevOps or backend involvement using Composable Architecture. Netlify hosts the server-side rendered pages in the cloud, mostly on AWS, and pulls the content from Hygraph during each build.
 
+- [Next.js](https://nextjs.org/) - a React framework for building server-side rendered and static web applications.
+- [GraphQL](https://graphql.org/) - a query language and runtime for APIs that provides a more efficient and flexible alternative to REST APIs. Very easy to request and drop data in from any backend.
+- [Hygraph Headless CMS](https://hygraph.io/) - a federated GraphQL API-powered headless content management system that makes building and running a content-driven application seamless for frontend engineers and product/UI teams.
+- [Netlify](https://www.netlify.com/) - a cloud computing platform that provides web hosting, serverless functions, CI/CD and innovations like branch deployment for easy approvals.
 ## 🌐 AirTable REST API
 
 The [Airtable REST API](https://airtable.com/developers/web/api/introduction) was used to retrieve the data from the Airtable. Here is the AirTable documentation for their API. Once you have a workspace, it will show at the bottom of the screen and you can jump into it and its documentation and API playground for testing the endpoint (check out the **curl** commands for a Hygraph connection).
@@ -60,35 +64,6 @@ Looka was used for nifty AI-generated logo design.
 ## Summary: 
 
 Hygraph is a very powerful and easy-to-use platform for generating static content-driven sites, assuming you know a front-end framework and GraphQL. The Hygraph content screens are very easy to navigate for a non-coder and built for your cross-functional partners in Product and UI.
-
-## Getting Started
-
-To get started with the application, you can clone the repository to your local machine and run the following commands:
-
-`npm install`
-`npm start`
-
-This will install the required dependencies and start the development server. You can then open your web browser and navigate to `http://localhost:3000` to view the application.
-
-You will need a free Hygraph application duplicating the <b>post</b> schema you see in the GraphQL queries in `index.js` and `[slug].js`. Remember to have entries and publish them in your Hygraph dashboard. Use your GraphQL API Playground in Hygraph to test your queries. Adjust the endpoint in both instances to the <b>PUBLIC</b> API Hypgraph endpoint that is <b>READ ONLY</b>. 
-
-
-## Technology Stack
-
-The application is built using the following technologies:
-
-- [Next.js](https://nextjs.org/) - a React framework for building server-side rendered and static web applications.
-- [GraphQL](https://graphql.org/) - a query language and runtime for APIs that provides a more efficient and flexible alternative to REST APIs. Very easy to request and drop data in from any backend.
-- [Hygraph Headless CMS](https://hygraph.io/) - a federated GraphQL API-powered headless content management system that makes building and running a content-driven application seamless for frontend engineers and product/UI teams.
-- [Netlify](https://www.netlify.com/) - a cloud computing platform that provides web hosting, serverless functions, CI/CD and innovations like branch deployment for easy approvals.
-
-## Work in Progress
-
-Expect enhancements:
-- Getting all tags functionality,
-- and cleaning up the hard-coded content functionality. 
-
-We are essentially unconnecting the mdx blog posts and housing and creating them in Hygraph, making this a product that can be run by non-coders after initial launch. Low code maintenance!
 
 ## Contributing
 
