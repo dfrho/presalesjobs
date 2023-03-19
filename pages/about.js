@@ -17,6 +17,9 @@ const AUTHORQUERY = gql`
         url
       }
       company
+      github
+      email
+      linkedin
     }
   }
 `
