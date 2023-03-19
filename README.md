@@ -8,7 +8,7 @@ The app uses an [Airtable as a backend data source](https://airtable.com/shrUMXS
 
 ## CMS Solution
 
-In addition to the job board, the app also has other content, such as information about the app and author bio, that needs to be updated on the fly. For this, Hygraph was used as a federated GraphQL API as a headless CMS solution. It pulls the data from the Airtable into their platform, making it simple to drop all the content into the frontend code using a very simple and declarative query syntax.
+In addition to the job board, the app also has other content, such as information about the app and author bio, that needs to be updated on the fly. For this, Hygraph was used as a federated GraphQL API as a headless CMS solution. It pulls the data from the Airtable into their platform, making it simple to drop all the content into the frontend code using a very simple and declarative query syntax. And whoever owns the content can easily adjust copy or images on the fly. Using webhooks, you can then trigger a Netlify deployment whenever new content is published in Hygraph, making it a seamless workflow.
 
 ## Tech Stack/Architecture
 
