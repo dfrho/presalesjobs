@@ -9,7 +9,7 @@ const siteMetadata = {
   siteRepo: '',
   siteLogo: '/static/images/logo-two.png',
   image: '/static/images/avatar-one.png',
-  socialBanner: '/static/images/twitter-card-two.png',
+  socialBanner: '/static/images/twitter-card-three.png',
   email: 'david@espressocode.tech',
   github: 'https://github.com/dfrho',
   twitter: 'https://twitter.com/Twitter',

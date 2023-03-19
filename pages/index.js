@@ -3,6 +3,8 @@ import { GraphQLClient, gql } from 'graphql-request'
 import { Div, Text } from 'styled-system-html'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 const Button = styled.button`
   display: inline-block;
@@ -88,6 +90,7 @@ export default function Home({ jobListings }) {
 
   return (
     <Div>
+      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <Div p={1} maxWidth="1200px" mx="auto" textAlign="center">
         <Div pb={4}>
           <Button onClick={toggleRemoteFilter} bg="green" color="white">
