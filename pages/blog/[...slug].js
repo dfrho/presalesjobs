@@ -42,12 +42,12 @@ const ApplyLink = styled.a`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-
+  outline: none;
   &:hover {
     background-color: darkgreen;
   }
 `
-const CopyButton = styled.button`
+const CopyButton = styled.div`
   display: inline-block;
   background-color: green;
   border: 1px solid gray;
@@ -55,6 +55,11 @@ const CopyButton = styled.button`
   border-radius: 4px;
   margin-left: 16px;
   cursor: pointer;
+  color: #fff;
+  outline: none;
+  &:hover {
+    background-color: darkgreen;
+  }
 `
 
 const ContactInfo = styled.div`
@@ -133,7 +138,8 @@ export async function getStaticProps({ params }) {
 export default function Blog({ jobListing }) {
   const [copied, setCopied] = useState(false)
 
-  const handleCopyClick = () => {
+  const handleCopyClick = (event) => {
+    event.preventDefault()
     navigator.clipboard.writeText(JobPostingURLTrack)
     setCopied(true)
   }
