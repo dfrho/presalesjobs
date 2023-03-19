@@ -5,6 +5,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
+import hygraph from './hygraph'
 
 const Button = styled.button`
   display: inline-block;
@@ -64,9 +65,6 @@ const LISTINGSQUERY = gql`
 `
 
 export async function getStaticProps() {
-  const hygraph = new GraphQLClient(
-    'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clf8fl33302ow01umha9250xr/master'
-  )
   const { preSalesJobsListsGroup } = await hygraph.request(LISTINGSQUERY)
 
   const sortedByDateJobs = preSalesJobsListsGroup[0].jobsQuery.records.sort(function (a, b) {

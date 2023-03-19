@@ -6,6 +6,7 @@ import { Text } from 'styled-system-html'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import hygraph from '../hygraph'
 
 const Icon = styled.span`
   font-size: 1rem;
@@ -87,9 +88,6 @@ const ALLLISTINGSQUERY = gql`
 `
 
 export async function getStaticPaths() {
-  const hygraph = new GraphQLClient(
-    'https://us-east-1-shared-usea1-02.cdn.hygraph.com/content/clf8fl33302ow01umha9250xr/master'
-  )
   const { preSalesJobsListsGroup } = await hygraph.request(ALLLISTINGSQUERY)
   const listings = preSalesJobsListsGroup[0].jobsQuery.records
   let routes = listings.map((listing) => {
