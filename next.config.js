@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   media-src 'none';
   connect-src *;
   font-src 'self';
-  frame-src https://www.youtube.com https://app.posthog.com
+  frame-src https://www.youtube.com https://app.posth.com
 `
 
 const securityHeaders = [
