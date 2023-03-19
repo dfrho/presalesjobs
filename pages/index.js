@@ -5,7 +5,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import hygraph from './hygraph'
+import hygraph from '../hygraph'
 
 const Button = styled.button`
   display: inline-block;
