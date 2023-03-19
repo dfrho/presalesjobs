@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import formatDate from '@/lib/utils/formatDate'
-import { GraphQLClient, gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import DOMPurify from 'isomorphic-dompurify'
 import { Text } from 'styled-system-html'
 import { useState } from 'react'
