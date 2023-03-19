@@ -1,6 +1,6 @@
 ![site logo](/public/static/images/twitter-card-three.png)
 
-[Deployed](https://presales-jobs.netlify.app/) 
+[Deployed App](https://presales-jobs.netlify.app/) 
 
 ## 📋 Use Case
 
