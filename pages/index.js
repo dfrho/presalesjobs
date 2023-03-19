@@ -1,6 +1,6 @@
 import formatDate from '@/lib/utils/formatDate'
 import { GraphQLClient, gql } from 'graphql-request'
-import { Div, Text, A } from 'styled-system-html'
+import { Div, Text } from 'styled-system-html'
 import { useState } from 'react'
 import styled from 'styled-components'
 
@@ -16,6 +16,27 @@ const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   outline: none;
+`
+
+const GreenButton = styled.a`
+  display: inline-block;
+  background-color: green;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 16px;
+  font-size: 12px;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+`
+const ListingWrapper = styled(Div)`
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
 `
 
 const LISTINGSQUERY = gql`
@@ -74,16 +95,16 @@ export default function Home({ jobListings }) {
           </Button>
         </Div>
         {listingsToRender.map((listing) => (
-          <Div key={listing.id} pb={5}>
+          <ListingWrapper key={listing.id}>
             <Text fontWeight="bold">{listing.fields.OpenRoleTitleTrack}</Text>
-            <Text>{formatDate(listing.fields.CreatedAtTrack)}</Text>
             <Text>{listing.fields.Company}</Text>
-            <Text>{listing.fields.RoleLocationTrack}</Text>
+            <Text>posted: {formatDate(listing.fields.CreatedAtTrack)}</Text>
+            <Text>location: {listing.fields.RoleLocationTrack}</Text>
             <Div>
-              <A href={listing.fields.JobPostingURLTrack}>Apply</A>
+              <GreenButton href={listing.fields.JobPostingURLTrack}>Apply</GreenButton>
+              <GreenButton href={`/blog/${listing.id}`}>Details</GreenButton>
             </Div>
-            <A href={`/blog/${listing.id}`}>Details</A>
-          </Div>
+          </ListingWrapper>
         ))}
       </Div>
     </Div>
