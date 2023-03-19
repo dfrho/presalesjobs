@@ -36,6 +36,7 @@ const HeaderWrapper = styled.header`
   @media (max-width: 640px) {
     justify-content: space-between;
     align-items: center;
+    height: 120px;
   }
 `
 
@@ -56,14 +57,10 @@ const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
       <HeaderWrapper className="flex justify-between py-3">
-        {/* <div className="flex h-screen flex-col justify-between"> */}
-        {/* <header className="flex items-center justify-between py-3"> */}
         <div>
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
-              <div className="mr-3">
-                {theme === 'dark' ? <ScaledDarkLogo /> : <ScaledLightLogo />}
-              </div>
+              <div>{theme === 'dark' ? <ScaledDarkLogo /> : <ScaledLightLogo />}</div>
             </div>
           </Link>
         </div>
