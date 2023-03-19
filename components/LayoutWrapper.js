@@ -19,21 +19,15 @@ const MainWrapper = styled.main`
 
 const ScaledLightLogo = styled(Logo)`
   @media (max-width: 640px) {
-    max-width: 80%;
     transform: scale(1.2);
-    position: absolute;
-    top: 0;
-    left: 0;
+    max-width: 80%;
   }
 `
 
 const ScaledDarkLogo = styled(LogoDark)`
   @media (max-width: 640px) {
-    max-width: 80%;
     transform: scale(1.2);
-    position: absolute;
-    top: 0;
-    left: 0;
+    max-width: 80%;
   }
 `
 const HeaderWrapper = styled.header`
