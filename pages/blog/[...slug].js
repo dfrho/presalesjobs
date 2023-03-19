@@ -14,11 +14,7 @@ const Icon = styled.span`
   color: #fff;
 `
 
-const CopyIcon = () => (
-  <Icon>
-    <FontAwesomeIcon icon={faCopy} />
-  </Icon>
-)
+const CopyIcon = () => <FontAwesomeIcon icon={faCopy} />
 
 const Wrapper = styled.article`
   max-width: 700px;
