@@ -20,14 +20,12 @@ const MainWrapper = styled.main`
 
 const ScaledLightLogo = styled(Logo)`
   @media (max-width: 640px) {
-    transform: scale(1.2);
     max-width: 80%;
   }
 `
 
 const ScaledDarkLogo = styled(LogoDark)`
   @media (max-width: 640px) {
-    transform: scale(1.2);
     max-width: 80%;
   }
 `
@@ -59,7 +57,7 @@ const LayoutWrapper = ({ children }) => {
       <HeaderWrapper className="flex flex-shrink-0 justify-between py-3">
         <div>
           <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center justify-between">
+            <div className="flex max-h-40 items-center justify-between">
               <div>{theme === 'dark' ? <ScaledDarkLogo /> : <ScaledLightLogo />}</div>
             </div>
           </Link>
