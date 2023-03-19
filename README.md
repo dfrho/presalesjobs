@@ -4,7 +4,7 @@
 
 ## 📋 Use Case
 
-The app uses an Airtable as a backend data source for a job board for pre-sales engineers. The Airtable is maintained by an outside source but it allows for public syncing, so a copy was created that will update whenever the base does, and an API key was obtained to pull data from it.
+The app uses an [Airtable as a backend data source](https://airtable.com/shrUMXSVTl2lMjIHb/tblhJ4d44919opKsl) to publish a job board for pre-sales engineers. The Airtable is maintained by an outside source but it allows for public syncing, so a copy was created that will update whenever the base does, and an API key was obtained to pull data from it.
 
 ## CMS Solution
 
