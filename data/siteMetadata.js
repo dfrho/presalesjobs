@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Pre Sales Jobs',
   author: 'David Rhodes',
   headerTitle: 'Pre Sales Jobs',
-  description: 'A demonstration of Hygraph GraphQL API CMS powered by a legacy REST API',
+  description: 'A demonstration of Hygraph GraphQL API CMS powered by the AirTable REST API',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: '',
