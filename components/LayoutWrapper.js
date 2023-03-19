@@ -14,6 +14,7 @@ import styled from 'styled-components'
 const MainWrapper = styled.main`
   @media (max-width: 640px) {
     padding-top: 60px;
+    z-index: 22;
   }
 `
 
