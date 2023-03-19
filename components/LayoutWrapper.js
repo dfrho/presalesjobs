@@ -37,6 +37,7 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 120px;
+    max-width: 100%;
   }
 `
 
