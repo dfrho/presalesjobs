@@ -9,6 +9,31 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
+import styled from 'styled-components'
+
+const MainWrapper = styled.main`
+  @media (max-width: 640px) {
+    padding-top: 60px;
+  }
+`
+
+const ScaledLightLogo = styled(Logo)`
+  @media (max-width: 640px) {
+    max-width: 80%;
+  }
+`
+
+const ScaledDarkLogo = styled(LogoDark)`
+  @media (max-width: 640px) {
+    max-width: 80%;
+  }
+`
+const HeaderWrapper = styled.header`
+  @media (max-width: 640px) {
+    justify-content: space-between;
+    align-items: center;
+  }
+`
 
 const LayoutWrapper = ({ children }) => {
   const { theme, setTheme } = useTheme()
@@ -26,34 +51,37 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <SectionContainer>
-      <div className="flex h-screen flex-col justify-between">
-        <header className="flex items-center justify-between py-3">
-          <div>
-            <Link href="/" aria-label={siteMetadata.headerTitle}>
-              <div className="flex items-center justify-between">
-                <div className="mr-3">{theme === 'dark' ? <LogoDark /> : <Logo />}</div>
+      <HeaderWrapper className="flex justify-between py-3">
+        {/* <div className="flex h-screen flex-col justify-between"> */}
+        {/* <header className="flex items-center justify-between py-3"> */}
+        <div>
+          <Link href="/" aria-label={siteMetadata.headerTitle}>
+            <div className="flex items-center justify-between">
+              <div className="mr-3">
+                {theme === 'dark' ? <ScaledDarkLogo /> : <ScaledLightLogo />}
               </div>
-            </Link>
-          </div>
-          <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
-              {headerNavLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                >
-                  {link.title}
-                </Link>
-              ))}
             </div>
-            <ThemeSwitch />
-            <MobileNav />
+          </Link>
+        </div>
+        <div className="flex items-center text-base leading-5">
+          <div className="hidden sm:block">
+            {headerNavLinks.map((link) => (
+              <Link
+                key={link.title}
+                href={link.href}
+                className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+              >
+                {link.title}
+              </Link>
+            ))}
           </div>
-        </header>
-        <main className="mb-auto">{children}</main>
-        <Footer />
-      </div>
+          <ThemeSwitch />
+          <MobileNav />
+        </div>
+      </HeaderWrapper>
+      <MainWrapper>{children}</MainWrapper>
+      <Footer />
+      {/* </div> */}
     </SectionContainer>
   )
 }
