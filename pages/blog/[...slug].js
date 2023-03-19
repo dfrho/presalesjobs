@@ -157,10 +157,10 @@ export default function Blog({ jobListing }) {
 
   return (
     <Wrapper>
-      <JobTitle>{OpenRoleTitleTrack}</JobTitle>
-      <JobField>{formatDate(CreatedAtTrack)}</JobField>
-      <JobField>{Company}</JobField>
-      <JobField>{RoleLocationTrack}</JobField>
+      <JobTitle>Open Role: {OpenRoleTitleTrack}</JobTitle>
+      <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
+      <JobField>Hiring Company: {Company}</JobField>
+      <JobField>Location: {RoleLocationTrack}</JobField>
       <ApplyLink href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
         Apply Now
       </ApplyLink>{' '}
