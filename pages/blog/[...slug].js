@@ -120,9 +120,6 @@ const LISTINGSQUERY = gql`
   }
 `
 export async function getStaticProps({ params }) {
-  const hygraph = new GraphQLClient(
-    'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clf8fl33302ow01umha9250xr/master'
-  )
   const { preSalesJobsListsGroup } = await hygraph.request(LISTINGSQUERY)
 
   const jobListing = preSalesJobsListsGroup[0].jobsQuery.records.filter(
@@ -141,7 +138,7 @@ export default function Blog({ jobListing }) {
     navigator.clipboard.writeText(JobPostingURLTrack)
     setCopied(true)
   }
-  const { fields, id } = jobListing
+  const { fields } = jobListing
   const {
     Company,
     CreatedAtTrack,
@@ -149,7 +146,6 @@ export default function Blog({ jobListing }) {
     POCEmailTrack,
     PointOfContactTrack,
     RoleLocationTrack,
-    RoleTypeTrack,
     OpenRoleTitleTrack,
   } = fields
 
