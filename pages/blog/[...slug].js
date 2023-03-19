@@ -7,14 +7,24 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import hygraph from '../../hygraph'
+import { useLayoutEffect } from 'react'
 
-const Icon = styled.span`
-  font-size: 1rem;
-  margin-right: 0.5rem;
-  color: #fff;
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  /* define your styles here */
 `
 
-const CopyIcon = () => <FontAwesomeIcon icon={faCopy} />
+function CopyIcon(props) {
+  useLayoutEffect(() => {
+    const iconElement = document.getElementById(props.id)
+    if (iconElement) {
+      iconElement.style.color = '#fff'
+      iconElement.style.fontSize = '1rem'
+      iconElement.style.marginRight = '0.5rem'
+    }
+  }, [props.id])
+
+  return <StyledFontAwesomeIcon id={props.id} icon={props.icon} />
+}
 
 const Wrapper = styled.article`
   max-width: 700px;
@@ -161,7 +171,7 @@ export default function Blog({ jobListing }) {
         Apply Now
       </ApplyLink>{' '}
       <CopyButton onClick={handleCopyClick}>
-        <CopyIcon />
+        <CopyIcon icon={faCopy} id="copy" />
         {copied ? 'Copied!' : 'Copy Link'}
       </CopyButton>
       {PointOfContactTrack !== '.' && (
