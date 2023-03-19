@@ -3,6 +3,7 @@ import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import { GraphQLClient, gql } from 'graphql-request'
 import DOMPurify from 'isomorphic-dompurify'
+import hygraph from './hygraph'
 
 const AUTHORQUERY = gql`
   {
@@ -23,9 +24,6 @@ const AUTHORQUERY = gql`
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export async function getStaticProps() {
-  const hygraph = new GraphQLClient(
-    'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clf8fl33302ow01umha9250xr/master'
-  )
   const { authors } = await hygraph.request(AUTHORQUERY)
   return { props: { authorDetails: authors[1] } }
 }
