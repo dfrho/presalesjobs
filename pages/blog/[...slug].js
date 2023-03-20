@@ -6,7 +6,7 @@ import { Text } from 'styled-system-html'
 import { useState } from 'react'
 import hygraph from '../../hygraph'
 import copyDarkIcon from '../../public/static/icons/copydark.svg'
-import copyLightIcon from '../../public/static/icons/copyLight.svg'
+import copyLightIcon from '../../public/static/icons/copylight.svg'
 import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
 
