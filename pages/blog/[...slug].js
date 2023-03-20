@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import styled from 'styled-components'
 import formatDate from '@/lib/utils/formatDate'
 import { gql } from 'graphql-request'
@@ -175,9 +176,9 @@ export default function Blog({ jobListing }) {
       <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
       <JobField>Hiring Company: {Company}</JobField>
       <JobField>Location: {RoleLocationTrack}</JobField>
-      <ApplyButton href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
-        Apply Now
-      </ApplyButton>{' '}
+      <Link href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
+        <ApplyButton>Apply Now</ApplyButton>{' '}
+      </Link>
       <CopyButton onClick={handleCopyClick}>
         <CopyButtonDiv>
           {!copied && <CopyIcon as={copyLightIcon} />}
