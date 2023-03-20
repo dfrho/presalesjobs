@@ -45,6 +45,10 @@ const ApplyLink = styled.a`
   &:hover {
     background-color: darkgreen;
   }
+  @media (max-width: 640px) {
+    min-width: 3rem;
+    min-height: 1.5rem;
+  }
 `
 const CopyButton = styled.div`
   display: inline-block;
@@ -58,6 +62,10 @@ const CopyButton = styled.div`
   outline: none;
   &:hover {
     background-color: darkgreen;
+  }
+  @media (max-width: 640px) {
+    min-width: 3rem;
+    min-height: 1.5rem;
   }
 `
 
