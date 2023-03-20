@@ -6,6 +6,7 @@ import { Text } from 'styled-system-html'
 import { useState } from 'react'
 import hygraph from '../../hygraph'
 import copyLightIcon from '../../public/static/icons/copylight.svg'
+import Link from 'next/link'
 
 const CopyIcon = styled.svg`
   width: 16px;
@@ -34,7 +35,7 @@ const JobField = styled(Text)`
   margin-bottom: 8px;
 `
 
-const ApplyLink = styled.a`
+const ApplyLink = styled(Link)`
   display: inline-block;
   background-color: green;
   color: #fff;
@@ -50,7 +51,7 @@ const ApplyLink = styled.a`
     min-height: 1.5rem;
   }
 `
-const CopyButton = styled.div`
+const CopyButton = styled.button`
   display: inline-block;
   background-color: green;
   border: 1px solid gray;
