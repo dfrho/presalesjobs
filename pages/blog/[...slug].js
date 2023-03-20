@@ -176,9 +176,9 @@ export default function Blog({ jobListing }) {
       <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
       <JobField>Hiring Company: {Company}</JobField>
       <JobField>Location: {RoleLocationTrack}</JobField>
-      <Link href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
+      <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
         <ApplyButton>Apply Now</ApplyButton>
-      </Link>
+      </a>
       <CopyButton onClick={handleCopyClick}>
         <CopyButtonDiv>
           {!copied && <CopyIcon as={copyLightIcon} />}

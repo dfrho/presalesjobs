@@ -102,8 +102,16 @@ export default function Home({ jobListings }) {
             <Text>posted: {formatDate(listing.fields.CreatedAtTrack)}</Text>
             <Text>location: {listing.fields.RoleLocationTrack}</Text>
             <Div>
-              <GreenButton href={listing.fields.JobPostingURLTrack}>Apply</GreenButton>
-              <GreenButton href={`/blog/${listing.id}`}>Details</GreenButton>
+              <GreenButton
+                rel="noopener noreferrer"
+                target="_blank"
+                href={listing.fields.JobPostingURLTrack}
+              >
+                Apply
+              </GreenButton>
+              <GreenButton rel="noopener noreferrer" target="_blank" href={`/blog/${listing.id}`}>
+                Details
+              </GreenButton>
             </Div>
           </ListingWrapper>
         ))}
