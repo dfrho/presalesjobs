@@ -177,7 +177,7 @@ export default function Blog({ jobListing }) {
       <JobField>Hiring Company: {Company}</JobField>
       <JobField>Location: {RoleLocationTrack}</JobField>
       <Link href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
-        <ApplyButton>Apply Now</ApplyButton>{' '}
+        <ApplyButton>Apply Now</ApplyButton>
       </Link>
       <CopyButton onClick={handleCopyClick}>
         <CopyButtonDiv>
