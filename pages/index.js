@@ -28,6 +28,7 @@ const GreenButton = styled.a`
   padding: 8px 16px;
   border-radius: 4px;
   margin-left: 16px;
+  margin-top: 10px;
   cursor: pointer;
   color: #fff;
   outline: none;
