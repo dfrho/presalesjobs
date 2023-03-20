@@ -14,6 +14,7 @@ const CopyIcon = styled.svg`
   width: 16px;
   height: 16px;
   color: #fff;
+  margin-right: 8px;
 
   &:hover {
     cursor: pointer;
