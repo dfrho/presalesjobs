@@ -49,7 +49,8 @@ const ApplyLink = styled.a`
   }
 `
 const CopyButton = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   background-color: green;
   border: 1px solid gray;
   padding: 8px 16px;
@@ -177,7 +178,7 @@ export default function Blog({ jobListing }) {
         Apply Now
       </ApplyLink>{' '}
       <CopyButton onClick={handleCopyClick}>
-        <CopyIcon as={theme === 'dark' ? copyLightIcon : copyDarkIcon} />
+        <CopyIcon as={copyLightIcon} />
         {copied ? 'Copied!' : 'Copy Link'}
       </CopyButton>
       {PointOfContactTrack !== '.' && (
