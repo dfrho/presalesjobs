@@ -64,7 +64,9 @@ module.exports = withBundleAnalyzer({
 
 ## Summary: 
 
-Hygraph is a very powerful and easy-to-use platform for generating static content-driven sites, assuming you know a front-end framework and GraphQL. The Hygraph content screens are very easy to navigate for a non-coder and built for your cross-functional partners in Product and UI.
+Hygraph is a very powerful and easy-to-use platform for generating static content-driven sites, assuming you know a front-end framework and GraphQL queries. The arduous set-up of the database and back-end is not required. It's all handled. There is some data modeling involved but you can convert your REST API returns to GraphQL SDL data types easily with the tutorials provided tool.
+
+As an engineer you simply consume your Hygraph API and drop in your data points as props. The Hygraph content screens are very easy to navigate for a non-coder and built for your cross-functional partners in Product and UI, and you can set up webhooks or zapier workflows easily to trigger updates whenever content changes.
 
 ## Contributing
 
