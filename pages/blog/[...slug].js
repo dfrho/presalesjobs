@@ -49,8 +49,7 @@ const ApplyLink = styled.a`
   }
 `
 const CopyButton = styled.div`
-  display: flex;
-  align-items: center;
+  display: inline-block;
   background-color: green;
   border: 1px solid gray;
   padding: 8px 16px;
@@ -62,6 +61,12 @@ const CopyButton = styled.div`
   &:hover {
     background-color: darkgreen;
   }
+`
+
+const CopyButtonDiv = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: content;
 `
 
 const ContactInfo = styled.div`
@@ -178,8 +183,10 @@ export default function Blog({ jobListing }) {
         Apply Now
       </ApplyLink>{' '}
       <CopyButton onClick={handleCopyClick}>
-        <CopyIcon as={copyLightIcon} />
-        {copied ? 'Copied!' : 'Copy Link'}
+        <CopyButtonDiv>
+          <CopyIcon as={copyLightIcon} />
+          {copied ? 'Copied!' : 'Copy Link'}
+        </CopyButtonDiv>
       </CopyButton>
       {PointOfContactTrack !== '.' && (
         <ContactInfo>
