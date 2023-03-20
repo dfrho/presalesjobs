@@ -1,24 +1,24 @@
+/* eslint-disable @next/next/link-passhref */
 import styled from 'styled-components'
 import formatDate from '@/lib/utils/formatDate'
-import { GraphQLClient, gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import DOMPurify from 'isomorphic-dompurify'
 import { Text } from 'styled-system-html'
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import hygraph from '../../hygraph'
+import copyLightIcon from '../../public/static/icons/copylight.svg'
+import Link from 'next/link'
 
-const Icon = styled.span`
-  font-size: 1rem;
-  margin-right: 0.5rem;
+const CopyIcon = styled.svg`
+  width: 12px;
+  height: 12px;
   color: #fff;
-`
+  margin-right: 8px;
 
-const CopyIcon = () => (
-  <Icon>
-    <FontAwesomeIcon icon={faCopy} />
-  </Icon>
-)
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 const Wrapper = styled.article`
   max-width: 700px;
@@ -36,7 +36,7 @@ const JobField = styled(Text)`
   margin-bottom: 8px;
 `
 
-const ApplyLink = styled.a`
+const ApplyButton = styled.button`
   display: inline-block;
   background-color: green;
   color: #fff;
@@ -47,8 +47,13 @@ const ApplyLink = styled.a`
   &:hover {
     background-color: darkgreen;
   }
+  @media (max-width: 640px) {
+    min-width: 3rem;
+    min-height: 1.5rem;
+  }
 `
-const CopyButton = styled.div`
+
+const CopyButton = styled.button`
   display: inline-block;
   background-color: green;
   border: 1px solid gray;
@@ -61,6 +66,16 @@ const CopyButton = styled.div`
   &:hover {
     background-color: darkgreen;
   }
+  @media (max-width: 640px) {
+    min-width: 3rem;
+    min-height: 1.5rem;
+  }
+`
+
+const CopyButtonDiv = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: content;
 `
 
 const ContactInfo = styled.div`
@@ -132,12 +147,12 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ jobListing }) {
   const [copied, setCopied] = useState(false)
-
   const handleCopyClick = (event) => {
     event.preventDefault()
     navigator.clipboard.writeText(JobPostingURLTrack)
     setCopied(true)
   }
+
   const { fields } = jobListing
   const {
     Company,
@@ -157,16 +172,18 @@ export default function Blog({ jobListing }) {
 
   return (
     <Wrapper>
-      <JobTitle>{OpenRoleTitleTrack}</JobTitle>
-      <JobField>{formatDate(CreatedAtTrack)}</JobField>
-      <JobField>{Company}</JobField>
-      <JobField>{RoleLocationTrack}</JobField>
-      <ApplyLink href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
-        Apply Now
-      </ApplyLink>{' '}
+      <JobTitle>Open Role: {OpenRoleTitleTrack}</JobTitle>
+      <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
+      <JobField>Hiring Company: {Company}</JobField>
+      <JobField>Location: {RoleLocationTrack}</JobField>
+      <Link href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
+        <ApplyButton>Apply Now</ApplyButton>
+      </Link>
       <CopyButton onClick={handleCopyClick}>
-        <CopyIcon />
-        {copied ? 'Copied!' : 'Copy Link'}
+        <CopyButtonDiv>
+          {!copied && <CopyIcon as={copyLightIcon} />}
+          {copied ? 'Copied!' : 'Copy Link'}
+        </CopyButtonDiv>
       </CopyButton>
       {PointOfContactTrack !== '.' && (
         <ContactInfo>

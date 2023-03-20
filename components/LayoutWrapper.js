@@ -13,7 +13,7 @@ import styled from 'styled-components'
 
 const MainWrapper = styled.main`
   @media (max-width: 640px) {
-    padding-top: 60px;
+    padding-top: 30px;
     z-index: 22;
   }
 `
@@ -21,12 +21,14 @@ const MainWrapper = styled.main`
 const ScaledLightLogo = styled(Logo)`
   @media (max-width: 640px) {
     max-width: 80%;
+    max-height: 15%;
   }
 `
 
 const ScaledDarkLogo = styled(LogoDark)`
   @media (max-width: 640px) {
     max-width: 80%;
+    max-height: 15%;
   }
 `
 const HeaderWrapper = styled.header`

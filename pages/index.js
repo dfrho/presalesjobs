@@ -1,5 +1,5 @@
 import formatDate from '@/lib/utils/formatDate'
-import { GraphQLClient, gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import { Div, Text } from 'styled-system-html'
 import { useState } from 'react'
 import styled from 'styled-components'
