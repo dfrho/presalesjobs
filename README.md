@@ -2,7 +2,7 @@
 
 [Deployed App](https://presales-jobs.netlify.app/)
 
-[Derived from this Excellent tailwind NextJS Starter Blog template.](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+Derived from this Excellent [tailwind NextJS Starter Blog template.](https://github.com/timlrx/tailwind-nextjs-starter-blog)
 Please support [timlrx](https://github.com/timlrx), the creator, by using and improving his code, and contributing.
 
 ## 📋 Use Case
