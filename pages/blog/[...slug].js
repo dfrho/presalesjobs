@@ -4,27 +4,21 @@ import { gql } from 'graphql-request'
 import DOMPurify from 'isomorphic-dompurify'
 import { Text } from 'styled-system-html'
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import hygraph from '../../hygraph'
-import { useLayoutEffect } from 'react'
+import copyDarkIcon from '../../public/static/icons/copydark.svg'
+import copyLightIcon from '../../public/static/icons/copyLight.svg'
+import { useTheme } from 'next-themes'
+import { useEffect } from 'react'
 
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  /* define your styles here */
+const CopyIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
-
-function CopyIcon(props) {
-  useLayoutEffect(() => {
-    const iconElement = document.getElementById(props.id)
-    if (iconElement) {
-      iconElement.style.color = '#fff'
-      iconElement.style.fontSize = '1rem'
-      iconElement.style.marginRight = '0.5rem'
-    }
-  }, [props.id])
-
-  return <StyledFontAwesomeIcon id={props.id} icon={props.icon} />
-}
 
 const Wrapper = styled.article`
   max-width: 700px;
@@ -137,13 +131,25 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Blog({ jobListing }) {
-  const [copied, setCopied] = useState(false)
+  const { theme, setTheme } = useTheme()
+  useEffect(() => {
+    function getThemeFromStorage() {
+      const storageKey = 'theme'
+      const theme = localStorage.getItem(storageKey)
+      return theme ? theme : null
+    }
 
+    const theme = getThemeFromStorage()
+    setTheme(theme)
+  })
+
+  const [copied, setCopied] = useState(false)
   const handleCopyClick = (event) => {
     event.preventDefault()
     navigator.clipboard.writeText(JobPostingURLTrack)
     setCopied(true)
   }
+
   const { fields } = jobListing
   const {
     Company,
@@ -171,7 +177,7 @@ export default function Blog({ jobListing }) {
         Apply Now
       </ApplyLink>{' '}
       <CopyButton onClick={handleCopyClick}>
-        <CopyIcon icon={faCopy} id="copy" />
+        <CopyIcon as={theme === 'dark' ? copyLightIcon : copyDarkIcon} />
         {copied ? 'Copied!' : 'Copy Link'}
       </CopyButton>
       {PointOfContactTrack !== '.' && (
