@@ -10,8 +10,8 @@ import copyLightIcon from '../../public/static/icons/copylight.svg'
 import Link from 'next/link'
 
 const CopyIcon = styled.svg`
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   color: #fff;
   margin-right: 8px;
 
