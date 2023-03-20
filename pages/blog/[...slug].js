@@ -184,7 +184,7 @@ export default function Blog({ jobListing }) {
       </ApplyLink>{' '}
       <CopyButton onClick={handleCopyClick}>
         <CopyButtonDiv>
-          <CopyIcon as={copyLightIcon} />
+          {!copied && <CopyIcon as={copyLightIcon} />}
           {copied ? 'Copied!' : 'Copy Link'}
         </CopyButtonDiv>
       </CopyButton>
