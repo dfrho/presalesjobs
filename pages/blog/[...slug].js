@@ -35,9 +35,10 @@ const JobField = styled(Text)`
   margin-bottom: 8px;
 `
 
-const ApplyLink = styled(Link)`
+const ApplyButton = styled.button`
   display: inline-block;
-  color: green;
+  background-color: green;
+  color: #fff;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
@@ -49,11 +50,6 @@ const ApplyLink = styled(Link)`
     min-width: 3rem;
     min-height: 1.5rem;
   }
-`
-
-const ButtonText = styled.span`
-  display: inline-block;
-  color: #fff;
 `
 
 const CopyButton = styled.button`
@@ -179,9 +175,9 @@ export default function Blog({ jobListing }) {
       <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
       <JobField>Hiring Company: {Company}</JobField>
       <JobField>Location: {RoleLocationTrack}</JobField>
-      <ApplyLink href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
-        <ButtonText>Apply Now</ButtonText>
-      </ApplyLink>{' '}
+      <ApplyButton href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
+        Apply Now
+      </ApplyButton>{' '}
       <CopyButton onClick={handleCopyClick}>
         <CopyButtonDiv>
           {!copied && <CopyIcon as={copyLightIcon} />}
