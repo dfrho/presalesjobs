@@ -24,15 +24,20 @@ const Button = styled.button`
 const GreenButton = styled.a`
   display: inline-block;
   background-color: green;
-  color: #fff;
-  padding: 4px 8px;
+  border: 1px solid gray;
+  padding: 8px 16px;
   border-radius: 4px;
-  text-decoration: none;
   margin-left: 16px;
-  font-size: 12px;
-
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
   &:hover {
     background-color: darkgreen;
+  }
+  @media (max-width: 640px) {
+    min-width: 3rem;
+    min-height: 1.5rem;
   }
 `
 const ListingWrapper = styled(Div)`
