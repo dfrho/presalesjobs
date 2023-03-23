@@ -92,7 +92,7 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: ${(props) => (props.theme === 'light' ? '#000' : '#6fbff9')};
+  color: ${(props) => (props.theme === 'light' ? '#422B64' : '#6fbff9')};
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
