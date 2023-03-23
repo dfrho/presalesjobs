@@ -7,7 +7,8 @@ import { Text } from 'styled-system-html'
 import { useState } from 'react'
 import hygraph from '../../hygraph'
 import copyLightIcon from '../../public/static/icons/copylight.svg'
-import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { useEffect } from 'react'
 
 const CopyIcon = styled.svg`
   width: 12px;
@@ -91,15 +92,20 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: #6fbff9;
+  color: ${(props) => (props.theme === 'light' ? '#000' : '#6fbff9')};
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
 `
 
 const EmailLink = ({ email, label }) => {
+  const { theme } = useTheme()
   const href = `mailto:${email}`
-  return <StyledEmailLink href={href}>{label || email}</StyledEmailLink>
+  return (
+    <StyledEmailLink href={href} theme={theme}>
+      {label || email}
+    </StyledEmailLink>
+  )
 }
 
 const ALLLISTINGSQUERY = gql`
@@ -159,6 +165,7 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ jobListing }) {
   const [copied, setCopied] = useState(false)
+
   const handleCopyClick = (event) => {
     event.preventDefault()
     navigator.clipboard.writeText(JobPostingURLTrack)
