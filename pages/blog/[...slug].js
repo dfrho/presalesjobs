@@ -90,6 +90,18 @@ const ContactValue = styled.div`
   /* add styles for the contact value here */
 `
 
+const StyledEmailLink = styled.a`
+  color: blue;
+  text-decoration: none;
+  transition: border-bottom 0.2s ease-in-out;
+  margin-bottom: 12px;
+`
+
+const EmailLink = ({ email, label }) => {
+  const href = `mailto:${email}`
+  return <StyledEmailLink href={href}>{label || email}</StyledEmailLink>
+}
+
 const ALLLISTINGSQUERY = gql`
   query AllListings {
     preSalesJobsListsGroup {
@@ -176,6 +188,13 @@ export default function Blog({ jobListing }) {
       <JobField>Posted On: {formatDate(CreatedAtTrack)}</JobField>
       <JobField>Hiring Company: {Company}</JobField>
       <JobField>Location: {RoleLocationTrack}</JobField>
+      {PointOfContactTrack !== '.' && (
+        <ContactInfo>
+          <ContactLabel>Point of Contact:</ContactLabel>
+          <ContactValue>{PointOfContactTrack}</ContactValue>
+          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
+        </ContactInfo>
+      )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
         <ApplyButton>Apply Now</ApplyButton>
       </a>
@@ -185,13 +204,6 @@ export default function Blog({ jobListing }) {
           {copied ? 'Copied!' : 'Copy Link'}
         </CopyButtonDiv>
       </CopyButton>
-      {PointOfContactTrack !== '.' && (
-        <ContactInfo>
-          <ContactLabel>Point of Contact:</ContactLabel>
-          <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && <ContactValue>{POCEmailTrack}</ContactValue>}
-        </ContactInfo>
-      )}
     </Wrapper>
   )
 }
