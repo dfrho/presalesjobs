@@ -92,19 +92,15 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: ${(props) => (props.theme === 'light' ? '#422B64' : '#6fbff9')};
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
+  font-weight: bold;
 `
 
-const EmailLink = ({ email, label, theme }) => {
+const EmailLink = ({ email, label }) => {
   const href = `mailto:${email}`
-  return (
-    <StyledEmailLink href={href} theme={theme}>
-      {label || email}
-    </StyledEmailLink>
-  )
+  return <StyledEmailLink href={href}> {label || email} </StyledEmailLink>
 }
 
 const ALLLISTINGSQUERY = gql`
@@ -210,9 +206,7 @@ export default function Blog({ jobListing }) {
         <ContactInfo>
           <ContactLabel>Point of Contact:</ContactLabel>
           <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && (
-            <EmailLink email={POCEmailTrack} label={POCEmailTrack} theme={theme} />
-          )}
+          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
         </ContactInfo>
       )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
