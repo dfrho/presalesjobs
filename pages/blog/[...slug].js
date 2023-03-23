@@ -101,6 +101,15 @@ const StyledEmailLink = styled.a`
   }
 `
 
+const EmailLink = ({ email, label }) => {
+  const href = `mailto:${email}`
+  return (
+    <Link href={href}>
+      <StyledEmailLink>{label || email}</StyledEmailLink>
+    </Link>
+  )
+}
+
 const ALLLISTINGSQUERY = gql`
   query AllListings {
     preSalesJobsListsGroup {
@@ -191,7 +200,7 @@ export default function Blog({ jobListing }) {
         <ContactInfo>
           <ContactLabel>Point of Contact:</ContactLabel>
           <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && <StyledEmailLink>{POCEmailTrack}</StyledEmailLink>}
+          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
         </ContactInfo>
       )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
