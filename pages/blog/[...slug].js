@@ -91,35 +91,16 @@ const ContactValue = styled.div`
   /* add styles for the contact value here */
 `
 
-const LightStyledEmailLink = styled.a`
-  color: #422b64;
+const StyledEmailLink = styled.a`
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
   font-weight: bold;
-  color: initial;
 `
 
-const DarkStyledEmailLink = styled.a`
-  color: '#6fbff9;
-  text-decoration: none;
-  transition: border-bottom 0.2s ease-in-out;
-  margin-bottom: 12px;
-  font-weight: bold;
-  color: initial;
-`
-
-const EmailLink = ({ email, label, theme }) => {
+const EmailLink = ({ email, label }) => {
   const href = `mailto:${email}`
-  return (
-    <>
-      {theme === 'light' ? (
-        <LightStyledEmailLink href={href}>{label || email}</LightStyledEmailLink>
-      ) : (
-        <DarkStyledEmailLink href={href}> {label || email} </DarkStyledEmailLink>
-      )}
-    </>
-  )
+  return <StyledEmailLink href={href}> {label || email} </StyledEmailLink>
 }
 
 const ALLLISTINGSQUERY = gql`
@@ -225,9 +206,7 @@ export default function Blog({ jobListing }) {
         <ContactInfo>
           <ContactLabel>Point of Contact:</ContactLabel>
           <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && (
-            <EmailLink email={POCEmailTrack} label={POCEmailTrack} theme={theme} />
-          )}
+          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
         </ContactInfo>
       )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
