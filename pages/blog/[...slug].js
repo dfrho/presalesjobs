@@ -91,8 +91,15 @@ const ContactValue = styled.div`
   /* add styles for the contact value here */
 `
 
-const StyledEmailLink = styled.a`
-  color: ${(props) => (props.theme === 'light' ? '#422B64' : '#6fbff9')};
+const LightStyledEmailLink = styled.a`
+  color: #422b64;
+  text-decoration: none;
+  transition: border-bottom 0.2s ease-in-out;
+  margin-bottom: 12px;
+`
+
+const DarkStyledEmailLink = styled.a`
+  color: '#6fbff9;
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
@@ -101,9 +108,13 @@ const StyledEmailLink = styled.a`
 const EmailLink = ({ email, label, theme }) => {
   const href = `mailto:${email}`
   return (
-    <StyledEmailLink href={href} theme={theme}>
-      {label || email}
-    </StyledEmailLink>
+    <>
+      {theme === 'light' ? (
+        <LightStyledEmailLink href={href}>{label || email}</LightStyledEmailLink>
+      ) : (
+        <DarkStyledEmailLink href={href}> {label || email} </DarkStyledEmailLink>
+      )}
+    </>
   )
 }
 
