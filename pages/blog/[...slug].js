@@ -91,23 +91,14 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: #000;
+  color: blue;
   text-decoration: none;
-  border-bottom: 2px solid #000;
   transition: border-bottom 0.2s ease-in-out;
-
-  &:hover {
-    border-bottom: 2px solid #fff;
-  }
 `
 
 const EmailLink = ({ email, label }) => {
   const href = `mailto:${email}`
-  return (
-    <Link href={href}>
-      <StyledEmailLink>{label || email}</StyledEmailLink>
-    </Link>
-  )
+  return <StyledEmailLink href={href}>{label || email}</StyledEmailLink>
 }
 
 const ALLLISTINGSQUERY = gql`
