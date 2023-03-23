@@ -94,7 +94,7 @@ const StyledEmailLink = styled.a`
   color: blue;
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 `
 
 const EmailLink = ({ email, label }) => {
