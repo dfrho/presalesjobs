@@ -24,6 +24,7 @@ const CopyIcon = styled.svg`
 const Wrapper = styled.article`
   max-width: 700px;
   margin: 0 auto;
+  color: initial;
 `
 
 const JobTitle = styled.h1`
@@ -97,6 +98,7 @@ const LightStyledEmailLink = styled.a`
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
   font-weight: bold;
+  color: inherit;
 `
 
 const DarkStyledEmailLink = styled.a`
@@ -105,6 +107,7 @@ const DarkStyledEmailLink = styled.a`
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
   font-weight: bold;
+  color: inherit;
 `
 
 const EmailLink = ({ email, label, theme }) => {
