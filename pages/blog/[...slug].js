@@ -91,7 +91,7 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: blue;
+  color: #6fbff9;
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
