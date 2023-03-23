@@ -96,6 +96,7 @@ const LightStyledEmailLink = styled.a`
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
+  font-weight: bold;
 `
 
 const DarkStyledEmailLink = styled.a`
@@ -103,6 +104,7 @@ const DarkStyledEmailLink = styled.a`
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
+  font-weight: bold;
 `
 
 const EmailLink = ({ email, label, theme }) => {
