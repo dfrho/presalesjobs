@@ -7,7 +7,8 @@ import { Text } from 'styled-system-html'
 import { useState } from 'react'
 import hygraph from '../../hygraph'
 import copyLightIcon from '../../public/static/icons/copylight.svg'
-import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { useEffect } from 'react'
 
 const CopyIcon = styled.svg`
   width: 12px;
@@ -91,15 +92,19 @@ const ContactValue = styled.div`
 `
 
 const StyledEmailLink = styled.a`
-  color: blue;
+  color: ${(props) => (props.theme === 'light' ? '#422B64' : '#6fbff9')};
   text-decoration: none;
   transition: border-bottom 0.2s ease-in-out;
   margin-bottom: 12px;
 `
 
-const EmailLink = ({ email, label }) => {
+const EmailLink = ({ email, label, theme }) => {
   const href = `mailto:${email}`
-  return <StyledEmailLink href={href}>{label || email}</StyledEmailLink>
+  return (
+    <StyledEmailLink href={href} theme={theme}>
+      {label || email}
+    </StyledEmailLink>
+  )
 }
 
 const ALLLISTINGSQUERY = gql`
@@ -159,6 +164,19 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ jobListing }) {
   const [copied, setCopied] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    function getThemeFromStorage() {
+      const storageKey = 'theme'
+      const theme = localStorage.getItem(storageKey)
+      return theme ? theme : null
+    }
+
+    const theme = getThemeFromStorage()
+    setTheme(theme)
+  })
+
   const handleCopyClick = (event) => {
     event.preventDefault()
     navigator.clipboard.writeText(JobPostingURLTrack)
@@ -192,7 +210,9 @@ export default function Blog({ jobListing }) {
         <ContactInfo>
           <ContactLabel>Point of Contact:</ContactLabel>
           <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
+          {POCEmailTrack !== '.' && (
+            <EmailLink email={POCEmailTrack} label={POCEmailTrack} theme={theme} />
+          )}
         </ContactInfo>
       )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
