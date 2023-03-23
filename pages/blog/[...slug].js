@@ -98,8 +98,7 @@ const StyledEmailLink = styled.a`
   margin-bottom: 12px;
 `
 
-const EmailLink = ({ email, label }) => {
-  const { theme } = useTheme()
+const EmailLink = ({ email, label, theme }) => {
   const href = `mailto:${email}`
   return (
     <StyledEmailLink href={href} theme={theme}>
@@ -165,6 +164,18 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ jobListing }) {
   const [copied, setCopied] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    function getThemeFromStorage() {
+      const storageKey = 'theme'
+      const theme = localStorage.getItem(storageKey)
+      return theme ? theme : null
+    }
+
+    const theme = getThemeFromStorage()
+    setTheme(theme)
+  })
 
   const handleCopyClick = (event) => {
     event.preventDefault()
@@ -199,7 +210,9 @@ export default function Blog({ jobListing }) {
         <ContactInfo>
           <ContactLabel>Point of Contact:</ContactLabel>
           <ContactValue>{PointOfContactTrack}</ContactValue>
-          {POCEmailTrack !== '.' && <EmailLink email={POCEmailTrack} label={POCEmailTrack} />}
+          {POCEmailTrack !== '.' && (
+            <EmailLink email={POCEmailTrack} label={POCEmailTrack} theme={theme} />
+          )}
         </ContactInfo>
       )}
       <a href={JobPostingURLTrack} target="_blank" rel="noopener noreferrer">
